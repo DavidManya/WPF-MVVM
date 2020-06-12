@@ -1,0 +1,333 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM\\AcademyMVVM.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
+        "projectName": "AcademyMVVM.Lib.DAL",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
+        "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj"
+              },
+              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
+        "projectName": "AcademyMVVM.Lib",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
+        "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM\\AcademyMVVM.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM\\AcademyMVVM.csproj",
+        "projectName": "AcademyMVVM",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM\\AcademyMVVM.csproj",
+        "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj"
+              },
+              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
+        "projectName": "Common.Lib",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
+        "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

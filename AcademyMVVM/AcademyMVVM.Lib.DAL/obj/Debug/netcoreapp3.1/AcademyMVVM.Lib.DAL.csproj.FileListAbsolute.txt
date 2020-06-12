@@ -1,0 +1,17 @@
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.deps.json
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.dll
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.csprojAssemblyReference.cache
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.AssemblyInfoInputs.cache
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.AssemblyInfo.cs
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.runtimeconfig.json
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.runtimeconfig.dev.json
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.genruntimeconfig.cache
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.pdb
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.dll
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.pdb
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\Common.Lib.dll
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\Common.Lib.pdb
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.csproj.CopyComplete
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.dll
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\bin\Debug\netcoreapp3.1\AcademyMVVM.Lib.pdb
+C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM.Lib.DAL\obj\Debug\netcoreapp3.1\AcademyMVVM.Lib.DAL.csproj.CoreCompileInputs.cache

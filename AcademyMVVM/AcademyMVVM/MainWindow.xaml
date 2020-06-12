@@ -1,0 +1,27 @@
+﻿<Window x:Class="AcademyMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AcademyMVVM"
+        xmlns:controls="clr-namespace:AcademyMVVM.Views"
+        mc:Ignorable="d"
+        Title="Academy Management" Height="520" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Students" Margin="0,0,0,0">
+                <controls:StudentsView></controls:StudentsView>
+            </TabItem>
+            <TabItem Header="Subjects" Margin="0,0,0,0">
+                <controls:SubjectsView></controls:SubjectsView>
+            </TabItem>
+            <!--<TabItem Header="Exams">
+                <controls:ExamsView></controls:ExamsView>
+            </TabItem>-->
+            <TabItem Header="Statistics" Margin="0,0,0,0">
+                <controls:StatisticsView></controls:StatisticsView>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
