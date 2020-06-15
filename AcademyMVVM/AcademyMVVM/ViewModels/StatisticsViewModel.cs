@@ -1,12 +1,10 @@
 ﻿using AcademyMVVM.Lib.UI;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using Common.Lib.Core.Context.Interfaces;
 using System.Windows.Input;
 using System.Linq;
 using AcademyMVVM.Lib.Models;
 using System.Windows;
+using Common.Lib.Core.Context;
 
 namespace AcademyMVVM.ViewModels
 {

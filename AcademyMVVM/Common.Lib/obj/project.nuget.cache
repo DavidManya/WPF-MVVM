@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1XRWPKANYMDKpc3tK6koBBThqVESgHHN2bSS7c0l7Pf7Fs7kQAkSUP+hnvF+xqoNeMLGjUMoEgKdcRPKNvQmBw==",
+  "dgSpecHash": "n1skdzHsqq5UrsIeHlDF8MQbXMsTabo6Rcqui1Xj8iy40081H2thenpCOYpAKGYX2unD3+/5SnVQXqbogK+nCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
+  "projectFilePath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dmany\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\dmany\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

@@ -1234,11 +1234,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
       "projectName": "AcademyMVVM.Lib.DAL",
-      "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
+      "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\AcademyMVVM.Lib.DAL.csproj",
       "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\obj\\",
+      "outputPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1254,11 +1254,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
-              "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj"
+            "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
+              "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj"
             },
-            "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
-              "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
+            "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+              "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
             }
           }
         }

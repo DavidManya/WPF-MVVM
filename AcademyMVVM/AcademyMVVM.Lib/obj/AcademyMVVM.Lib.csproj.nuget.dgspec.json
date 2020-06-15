@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {}
+    "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
+    "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
         "projectName": "AcademyMVVM.Lib",
-        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\AcademyMVVM.Lib.csproj",
         "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\obj\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\AcademyMVVM.Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
-                "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
+              "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+                "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj"
               }
             }
           }
@@ -82,14 +82,14 @@
         }
       }
     },
-    "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
+    "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
+        "projectUniqueName": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
         "projectName": "Common.Lib",
-        "projectPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
+        "projectPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\Common.Lib.csproj",
         "packagesPath": "C:\\Users\\dmany\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmany\\Desktop\\MVVM\\AcademyMVVM\\Common.Lib\\obj\\",
+        "outputPath": "C:\\Users\\dmany\\Desktop\\WPF-MVVM\\AcademyMVVM\\Common.Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmany\\AppData\\Roaming\\NuGet\\NuGet.Config",

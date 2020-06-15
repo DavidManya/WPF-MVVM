@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Common.Lib.Core;
 using Common.Lib.Infrastructure;
 
@@ -12,8 +11,8 @@ namespace AcademyMVVM.Lib.Models
         public DateTime DateExam { get; set; }
         public double Mark { get; set; }
 
-        public virtual Subjects Subjects { get; set; }
-        public virtual Students Students { get; set; }
+        //public virtual Subjects Subjects { get; set; }
+        //public virtual Students Students { get; set; }
 
 
         public Exams()
@@ -21,13 +20,13 @@ namespace AcademyMVVM.Lib.Models
 
         }
 
-        public Exams(string namesubject, string dnistudent, DateTime dateexam, Double mark)
-        {
-            NameSubject = namesubject;
-            DniStudent = dnistudent;
-            DateExam = dateexam;
-            Mark = mark;
-        }
+        //public Exams(string namesubject, string dnistudent, DateTime dateexam, Double mark)
+        //{
+        //    NameSubject = namesubject;
+        //    DniStudent = dnistudent;
+        //    DateExam = dateexam;
+        //    Mark = mark;
+        //}
 
         public SaveResult<Exams> Save()
         {
@@ -35,11 +34,11 @@ namespace AcademyMVVM.Lib.Models
             return saveResult;
         }
 
-        public SaveResult<Exams> Delete()
+        public DeleteResult<Exams> Delete()
         {
-            var saveResult = base.Delete<Exams>();
+            var deleteResult = base.Delete<Exams>();
 
-            return saveResult;
+            return deleteResult;
         }
 
         public override ValidationResult Validate()

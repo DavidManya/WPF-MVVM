@@ -24,12 +24,12 @@ namespace AcademyMVVM.Lib.DAL
                    .Ignore(x => x.CurrentValidation);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");//        
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");//        
+        //    }
+        //}
     }
 }

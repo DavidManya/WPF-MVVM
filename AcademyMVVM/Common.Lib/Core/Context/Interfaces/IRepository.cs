@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using Common.Lib.Infrastructure;
 
-namespace Common.Lib.Core.Context.Interfaces
+namespace Common.Lib.Core.Context
 {
     public interface IRepository<T> where T : Entity
     {
@@ -12,6 +10,6 @@ namespace Common.Lib.Core.Context.Interfaces
         T Find(Guid id);
         SaveResult<T> Add(T entity);
         SaveResult<T> Update(T entity);
-        SaveResult<T> Delete(T entity);
+        DeleteResult<T> Delete(T entity);
     }
 }

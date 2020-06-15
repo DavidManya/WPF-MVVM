@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM\obj\Debug\netcoreapp3.1\
-AcademyMVVM_n33iebxp_wpftmp
+C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\AcademyMVVM\obj\Debug\netcoreapp3.1\
+AcademyMVVM
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\dmany\Desktop\MVVM\AcademyMVVM\AcademyMVVM\App.xaml
+C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\AcademyMVVM\App.xaml
 61717882686
 
-262024925911
-223-370732933
+22926134272
+224-516913504
 MainWindow.xaml;Views\ExamsView.xaml;Views\LoginView.xaml;Views\StatisticsView.xaml;Views\StudentsView.xaml;Views\SubjectsView.xaml;
 
-True
+False
 

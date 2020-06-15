@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Common.Lib.Core;
-using Common.Lib.Core.Context.Interfaces;
+using Common.Lib.Core.Context;
 using Common.Lib.Infrastructure;
 using System.Linq;
 
@@ -13,30 +11,30 @@ namespace AcademyMVVM.Lib.Models
         public string Name { get; set; }
         public string Teacher { set; get; }
 
-        public virtual List<Exams> Exams { get; set; }
-        public virtual List<Courses> Courses { get; set; }
+        //public virtual List<Exams> Exams { get; set; }
+        //public virtual List<Courses> Courses { get; set; }
 
         public Subjects()
         {
 
         }
 
-        public Subjects(string name, string teacher)
-        {
-            Name = name;
-            Teacher = teacher;
-        }
+        //public Subjects(string name, string teacher)
+        //{
+        //    Name = name;
+        //    Teacher = teacher;
+        //}
 
         public SaveResult<Subjects> Save()
         {
             return base.Save<Subjects>();
         }
 
-        public SaveResult<Subjects> Delete()
+        public DeleteResult<Subjects> Delete()
         {
-            var saveResult = base.Delete<Subjects>();
+            var deleteResult = base.Delete<Subjects>();
 
-            return saveResult;
+            return deleteResult;
         }
 
         public override ValidationResult Validate()

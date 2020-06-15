@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Common.Lib.Core.Context.Interfaces;
+using Common.Lib.Core.Context;
 using Common.Lib.Infrastructure;
 using Common.Lib.Infrastructure.Interfaces;
 
@@ -31,7 +29,6 @@ namespace Common.Lib.Core
 
                 if (this.Id == Guid.Empty)
                 {
-
                     output = repo.Add(this as T);
                 }
                 else
@@ -55,9 +52,9 @@ namespace Common.Lib.Core
             return output;
         }
 
-        public virtual SaveResult<T> Delete<T>() where T : Entity
+        public virtual DeleteResult<T> Delete<T>() where T : Entity
         {
-            var output = new SaveResult<T>();
+            var output = new DeleteResult<T>();
 
             CurrentValidation = Validate();
 

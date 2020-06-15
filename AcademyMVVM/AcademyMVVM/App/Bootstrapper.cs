@@ -5,9 +5,10 @@ using AcademyMVVM.DbContextFactory;
 using AcademyMVVM.Lib.DAL;
 using Common.Lib.Core;
 using AcademyMVVM.Lib.Models;
-using Common.Lib.Core.Context.Interfaces;
+using Common.Lib.Core.Context;
 
-namespace AcademyMVVM.App
+
+namespace AcademyMVVM
 {
     public class Bootstrapper
     {

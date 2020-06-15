@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Common.Lib.Core;
-using Common.Lib.Core.Context.Interfaces;
+using Common.Lib.Core.Context;
 using Common.Lib.Infrastructure;
+using Common.Lib.Infrastructure.Interfaces;
 using System.Linq;
 
 namespace AcademyMVVM.Lib.Models
@@ -15,32 +14,32 @@ namespace AcademyMVVM.Lib.Models
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        public virtual List<Exams> Exams { get; set; }
-        public virtual List<Courses> Courses { get; set; }
+        //public virtual List<Exams> Exams { get; set; }
+        //public virtual List<Courses> Courses { get; set; }
 
         public Students()
         {
 
         }
 
-        public Students(string dni, string firstname, string lastname, string email)
-        {
-            Dni = dni;
-            FirstName = firstname;
-            LastName = lastname;
-            Email = email;
-        }
+        //public Students(string dni, string firstname, string lastname, string email)
+        //{
+        //    Dni = dni;
+        //    FirstName = firstname;
+        //    LastName = lastname;
+        //    Email = email;
+        //}
 
         public SaveResult<Students> Save()
         {
             return base.Save<Students>();
         }
 
-        public SaveResult<Students> Delete()
+        public DeleteResult<Students> Delete()
         {
-            var saveResult = base.Delete<Students>();
+            var deleteResult = base.Delete<Students>();
 
-            return saveResult;
+            return deleteResult;
         }
 
         public override ValidationResult Validate()

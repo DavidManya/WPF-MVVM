@@ -214,7 +214,7 @@ namespace AcademyMVVM.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AcademyMVVM;V1.0.0.0;component/views/statisticsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AcademyMVVM;component/views/statisticsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\StatisticsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
