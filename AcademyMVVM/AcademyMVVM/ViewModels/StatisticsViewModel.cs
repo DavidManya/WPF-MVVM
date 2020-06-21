@@ -25,6 +25,7 @@ namespace AcademyMVVM.ViewModels
         public ICommand GetStudentsCommand { get; set; }
         public ICommand GetAvgbyStudentsCommand { get; set; }
 
+        private bool error = false;
         private string messageBoxText;
         private string caption = "Error de Proceso";
         private MessageBoxButton button = MessageBoxButton.OK;
@@ -197,27 +198,50 @@ namespace AcademyMVVM.ViewModels
         }
         public void GetSubjects()
         {
+            DniVM = null;
+            LNameVM = null;
+            StudentsList = null;
+            NotaMedVM = 0;
+            NotaMaxVM = 0;
+            NotaMinVM = 0;
             GetListSubjects();
             SubjectsNameList = GetSubjectsByName();
         }
 
         public void GetAvgbySubjects()
         {
-            var repo = Exams.DepCon.Resolve<IRepository<Exams>>();
-            AvgbySubjectList = repo.QueryAll().ToList();
-            AvgbySubjectList = AvgbySubjectList.FindAll(x => x.NameSubject == CurrentSubject.Name);
+            if (CurrentSubject == null || CurrentSubject.Id == default)
+            {
+                messageBoxText = "Debe indicar una asignatura";
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
+            else
+            {
+                error = false;
+                var repo = Exams.DepCon.Resolve<IRepository<Exams>>();
+                AvgbySubjectList = repo.QueryAll().ToList();
+                AvgbySubjectList = AvgbySubjectList.FindAll(x => x.NameSubject == CurrentSubject.Name);
 
-            MarksListVM();
-            NotaMediaVM();
-            NotaMaximaVM();
-            NotaMinimaVM();
-            AvgbySubjectList.Clear();
+                MarksListVM();
+                NotaMediaVM();
+                if (!error)
+                {
+                    NotaMaximaVM();
+                    NotaMinimaVM();
+                }
+
+                AvgbySubjectList.Clear();
+            }
+
         }
 
         public void GetListStudents()
         {
             var repo = Students.DepCon.Resolve<IRepository<Students>>();
             StudentsList = repo.QueryAll().ToList();
+
+            if(DniVM == "") { DniVM = null; }
+            if(LNameVM == "") { LNameVM = null; }
 
             if (DniVM != null || LNameVM != null)
             {
@@ -230,11 +254,18 @@ namespace AcademyMVVM.ViewModels
                     StudentsList = StudentsList.FindAll(x => x.LastName.Contains(LNameVM));
                 }
 
-                if (StudentsList.Count == 1)
+                if (StudentsList.Count == 0)
+                {
+                    messageBoxText = "No se ha encontrado el alumno";
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                    DniVM = null;
+                    LNameVM = null;
+                }
+                else if (StudentsList.Count == 1)
                 {
                     CurrentStudent = StudentsList[0];
-                    DniVM = "";
-                    LNameVM = "";
+                    DniVM = StudentsList[0].Dni;
+                    LNameVM = StudentsList[0].LastName;
                 }
             }
         }
@@ -251,21 +282,38 @@ namespace AcademyMVVM.ViewModels
         }
         public void GetStudents()
         {
+            SubjectsList = null;
+            NotaMedVM = 0;
+            NotaMaxVM = 0;
+            NotaMinVM = 0;
             GetListStudents();
-            StudentsNameList = GetStudentsByName();
         }
 
         public void GetAvgbyStudents()
         {
-            var repo = Exams.DepCon.Resolve<IRepository<Exams>>();
-            AvgbyStudentList = repo.QueryAll().ToList();
-            AvgbyStudentList = AvgbyStudentList.FindAll(x => x.DniStudent == CurrentStudent.Dni);
+            //if (CurrentStudent.Id != default)
+            if (CurrentStudent == null || CurrentStudent.Id == default)
+            {
+                messageBoxText = "Debe indicar un alumno";
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
+            else
+            {
+                error = false;
+                var repo = Exams.DepCon.Resolve<IRepository<Exams>>();
+                AvgbyStudentList = repo.QueryAll().ToList();
+                AvgbyStudentList = AvgbyStudentList.FindAll(x => x.DniStudent == CurrentStudent.Dni);
 
-            MarksListVM();
-            NotaMediaVM();
-            NotaMaximaVM();
-            NotaMinimaVM();
-            AvgbyStudentList.Clear();
+                MarksListVM();
+                NotaMediaVM();
+                if (!error)
+                {
+                    NotaMaximaVM();
+                    NotaMinimaVM();
+                }
+                AvgbyStudentList.Clear();
+            }
+
         }
 
         public List<double> MarksListVM()
@@ -302,8 +350,12 @@ namespace AcademyMVVM.ViewModels
             var marksList = new List<double>();
             marksList = MarksListVM();
 
-            if (marksList == null) { }
-
+            if (marksList.Count == 0) 
+            {
+                error = true;
+                messageBoxText = "No hay datos para esta selección";
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
             else
             {
                 NotaMedVM = marksList.Average();
@@ -317,8 +369,11 @@ namespace AcademyMVVM.ViewModels
             var marksList = new List<double>();
             marksList = MarksListVM();
 
-            if (marksList == null) { }
-
+            if (marksList.Count == 0) 
+            {
+                messageBoxText = "No hay datos para esta selección";
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
             else
             {
                 NotaMaxVM = marksList.Max();
@@ -333,8 +388,11 @@ namespace AcademyMVVM.ViewModels
             var marksList = new List<double>();
             marksList = MarksListVM();
 
-            if (marksList == null) { }
-
+            if (marksList.Count == 0) 
+            {
+                messageBoxText = "No hay datos para esta selección";
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
             else
             {
                 NotaMinVM = marksList.Min();

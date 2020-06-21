@@ -6,6 +6,7 @@ using System.Linq;
 using AcademyMVVM.Lib.Models;
 using System.Windows;
 using Common.Lib.Core.Context;
+using System.Windows.Controls;
 
 namespace AcademyMVVM.ViewModels
 {
@@ -57,7 +58,7 @@ namespace AcademyMVVM.ViewModels
         private string caption = "Error de Proceso";
         private MessageBoxButton button = MessageBoxButton.OK;
         private MessageBoxImage icon = MessageBoxImage.Warning;
-        
+
         private string _dniVM;
         public string DniVM
         {
@@ -146,62 +147,62 @@ namespace AcademyMVVM.ViewModels
             }
         }
 
-        private Students _currentStudent = new Students();
+        private Students _currentStudent;
         public Students CurrentStudent
         {
             get { return _currentStudent; }
             set
             {
                 _currentStudent = value;
-                NotifyPropertyChanged("CurrentStudent");
+                NotifyPropertyChanged();
             }
         }
 
-        private Subjects _currentSubjectC = new Subjects();
-        public Subjects CurrentSubjectC
+        private string _currentSubjectC;
+        public string CurrentSubjectC
         {
             get { return _currentSubjectC; }
             set
             {
                 _currentSubjectC = value;
-                NotifyPropertyChanged("CurrentSubject");
+                NotifyPropertyChanged("CurrentSubjectC");
             }
         }
 
-        private Subjects _currentSubjectE = new Subjects();
-        public Subjects CurrentSubjectE
+        private string _currentSubjectE;
+        public string CurrentSubjectE
         {
             get { return _currentSubjectE; }
             set
             {
                 _currentSubjectE = value;
-                NotifyPropertyChanged("CurrentSubject");
+                NotifyPropertyChanged("CurrentSubjectE");
             }
         }
 
-        private Courses _currentCourse = new Courses();
+        private Courses _currentCourse;
         public Courses CurrentCourse
         {
             get { return _currentCourse; }
             set
             {
                 _currentCourse = value;
-                NotifyPropertyChanged("CurrentCourse");
+                NotifyPropertyChanged();
             }
         }
 
-        private Exams _currentExam = new Exams();
+        private Exams _currentExam;
         public Exams CurrentExam
         {
             get { return _currentExam; }
             set
             {
                 _currentExam = value;
-                NotifyPropertyChanged("CurrentExam");
+                NotifyPropertyChanged();
             }
         }
 
-        private List<Students> _studentsList = new List<Students>();
+        private List<Students> _studentsList;
         public List<Students> StudentsList
         {
             get { return _studentsList; }
@@ -213,7 +214,7 @@ namespace AcademyMVVM.ViewModels
 
         }
 
-        private List<Subjects> _subjectsList = new List<Subjects>();
+        private List<Subjects> _subjectsList;
         public List<Subjects> SubjectsList
         {
             get { return _subjectsList; }
@@ -225,7 +226,7 @@ namespace AcademyMVVM.ViewModels
 
         }
 
-        private List<Courses> _coursesList = new List<Courses>();
+        private List<Courses> _coursesList;
         public List<Courses> CoursesList
         {
             get { return _coursesList; }
@@ -237,7 +238,7 @@ namespace AcademyMVVM.ViewModels
 
         }
 
-        private List<string> _subjectsNameListC = new List<string>();
+        private List<string> _subjectsNameListC;
         public List<string> SubjectsNameListC
         {
             get { return _subjectsNameListC; }
@@ -249,7 +250,7 @@ namespace AcademyMVVM.ViewModels
 
         }
 
-        private List<string> _subjectsNameListE = new List<string>();
+        private List<string> _subjectsNameListE;
         public List<string> SubjectsNameListE
         {
             get { return _subjectsNameListE; }
@@ -261,7 +262,7 @@ namespace AcademyMVVM.ViewModels
 
         }
 
-        private List<Exams> _examsList = new List<Exams>();
+        private List<Exams> _examsList;
         public List<Exams> ExamsList
         {
             get { return _examsList; }
@@ -278,26 +279,30 @@ namespace AcademyMVVM.ViewModels
             var repo = Students.DepCon.Resolve<IRepository<Students>>();
             StudentsList = repo.QueryAll().ToList();
 
-            if (DniVM != null || LNameVM != null)
+            if (DniVM == "") { DniVM = null; }
+            if (LNameVM == "") { LNameVM = null; }
+
+            if ((DniVM != null || LNameVM != null) && isEdit == false)
             {
                 if (DniVM != null)
                 {
                     StudentsList = StudentsList.FindAll(x => x.Dni == DniVM);
                 }
-                else
+                else if (LNameVM != null)
                 {
                     StudentsList = StudentsList.FindAll(x => x.LastName.Contains(LNameVM));
                 }
-
-                if (StudentsList.Count == 1)
-                {
-                    CurrentStudent = StudentsList[0];
-                    DniVM = CurrentStudent.Dni;
-                    FNameVM = CurrentStudent.FirstName;
-                    LNameVM = CurrentStudent.LastName;
-                    EmailVM = CurrentStudent.Email;
-                }
             }
+
+            if (StudentsList.Count == 1)
+            {
+                CurrentStudent = StudentsList[0];
+                DniVM = CurrentStudent.Dni;
+                FNameVM = CurrentStudent.FirstName;
+                LNameVM = CurrentStudent.LastName;
+                EmailVM = CurrentStudent.Email;
+            }
+
         }
 
         bool isEdit = false;
@@ -326,26 +331,20 @@ namespace AcademyMVVM.ViewModels
             }
 
             CurrentStudent = null;
-            DniVM = "";
-            FNameVM = "";
-            LNameVM = "";
-            EmailVM = "";
-            isEdit = false;
+            DniVM = null;
+            FNameVM = null;
+            LNameVM = null;
+            EmailVM = null;
 
             GetStudents();
+
+            isEdit = false;
         }
 
         public void EditStudents()
         {
-            var student = new Students();
-            student = CurrentStudent;
-
-            DniVM = CurrentStudent.Dni;
-            FNameVM = CurrentStudent.FirstName;
-            LNameVM = CurrentStudent.LastName;
-            EmailVM = CurrentStudent.Email;
-
             isEdit = true;
+            SaveStudents();
         }
 
         public void DelStudents()
@@ -360,10 +359,10 @@ namespace AcademyMVVM.ViewModels
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
 
-            DniVM = "";
-            FNameVM = "";
-            LNameVM = "";
-            EmailVM = "";
+            DniVM = null;
+            FNameVM = null;
+            LNameVM = null;
+            EmailVM = null;
 
             GetStudents();
         }
@@ -407,7 +406,7 @@ namespace AcademyMVVM.ViewModels
                 if (CoursesList.Count == 1)
                 {
                     CurrentCourse = CoursesList[0];
-                    CurrentSubjectC.Name = CurrentCourse.NameSubject; //no sé si funcionarà
+                    CurrentSubjectC = CurrentCourse.NameSubject; //no sé si funcionarà
                     DateSVM = CurrentCourse.DateEnrolment;
                     ChairVM = CurrentCourse.ChairNumber;
                 }
@@ -424,7 +423,7 @@ namespace AcademyMVVM.ViewModels
             Courses course = new Courses()
             {
                 DniStudent = DniVM,
-                NameSubject= CurrentSubjectC.Name,
+                NameSubject = CurrentSubjectC,
                 DateEnrolment =DateSVM,
                 ChairNumber = ChairVM,
             };
@@ -457,7 +456,7 @@ namespace AcademyMVVM.ViewModels
             var course = new Courses();
             course = CurrentCourse;
 
-            CurrentSubjectC.Name = CurrentCourse.NameSubject;
+            CurrentSubjectC = CurrentCourse.NameSubject;
             DateSVM = CurrentCourse.DateEnrolment;
             ChairVM = CurrentCourse.ChairNumber;
 
@@ -493,7 +492,7 @@ namespace AcademyMVVM.ViewModels
                 if (ExamsList.Count == 1)
                 {
                     CurrentExam = ExamsList[0];
-                    CurrentSubjectE.Name = CurrentExam.NameSubject; //no sé si funcionarà
+                    CurrentSubjectE = CurrentExam.NameSubject; //no sé si funcionarà
                     DateEVM = CurrentExam.DateExam;
                     MarkVM = CurrentExam.Mark;
                 }
@@ -510,7 +509,7 @@ namespace AcademyMVVM.ViewModels
             Exams exam = new Exams()
             {
                 DniStudent = DniVM,
-                NameSubject = CurrentSubjectE.Name,
+                NameSubject = CurrentSubjectE,
                 DateExam = DateEVM,
                 Mark = MarkVM,
             };
@@ -543,7 +542,7 @@ namespace AcademyMVVM.ViewModels
             var exam = new Exams();
             exam = CurrentExam;
 
-            CurrentSubjectE.Name = CurrentExam.NameSubject;
+            CurrentSubjectE = CurrentExam.NameSubject;
             DateEVM = CurrentExam.DateExam;
             MarkVM = CurrentExam.Mark;
             isEdit = true;

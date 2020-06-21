@@ -19,12 +19,6 @@ namespace AcademyMVVM.Lib.Models
 
         }
 
-        //public Subjects(string name, string teacher)
-        //{
-        //    Name = name;
-        //    Teacher = teacher;
-        //}
-
         public SaveResult<Subjects> Save()
         {
             return base.Save<Subjects>();
@@ -52,7 +46,7 @@ namespace AcademyMVVM.Lib.Models
 
         public void ValidateName(ValidationResult validationResult)
         {
-            var vr = ValidateName(this.Name);
+            var vr = ValidateName(this.Name, this.Id);
 
             if (!vr.IsSuccess)
             {
@@ -90,19 +84,22 @@ namespace AcademyMVVM.Lib.Models
             var repo = DepCon.Resolve<IRepository<Subjects>>();
             var entityWithName = repo.QueryAll().FirstOrDefault(s => s.Name == name);
 
-            if (currentId == default && entityWithName != null)
+            if(entityWithName != null)
             {
-                // on create
-                output.IsSuccess = false;
-                output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
-            }
-            else if (currentId != default && entityWithName.Id != currentId && entityWithName != null)
-            {
-                // on update
-                if(entityWithName.Name == name)
+                if (currentId == default)
                 {
+                    // on create
                     output.IsSuccess = false;
                     output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
+                }
+                else if (currentId != default && entityWithName.Id != currentId)
+                {
+                    // on update
+                    if (entityWithName.Name == name)
+                    {
+                        output.IsSuccess = false;
+                        output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
+                    }
                 }
             }
             #endregion

@@ -50,7 +50,7 @@ namespace AcademyMVVM.ViewModels
             }
         }
 
-        private Subjects _currentSubject = new Subjects();
+        private Subjects _currentSubject;
         public Subjects CurrentSubject
         {
             get { return _currentSubject; }
@@ -58,20 +58,10 @@ namespace AcademyMVVM.ViewModels
             {
                 _currentSubject = value;
                 NotifyPropertyChanged("CurrentSubject");
-                NotifyPropertyChanged("CanShowInfo");
             }
         }
 
-        //Per què serveix això?
-        //private bool CanShowInfo
-        //{
-        //    get
-        //    {
-        //        return CurrentSubject != null;
-        //    }
-        //}
-
-        private List<Subjects> _subjectsList = new List<Subjects>();
+        private List<Subjects> _subjectsList;
         public List<Subjects> SubjectsList
         {
             get { return _subjectsList; }
@@ -88,7 +78,9 @@ namespace AcademyMVVM.ViewModels
             var repo = Subjects.DepCon.Resolve<IRepository<Subjects>>();
             SubjectsList = repo.QueryAll().ToList();
 
-            if(NameVM != null)
+            if (NameVM == "") { NameVM = null; }
+
+            if (NameVM != null)
             {
                 SubjectsList = SubjectsList.FindAll(x => x.Name == NameVM);
                 if (SubjectsList.Count == 1)
@@ -97,6 +89,13 @@ namespace AcademyMVVM.ViewModels
                     NameVM = CurrentSubject.Name;
                     TeacherVM = CurrentSubject.Teacher;
                 }
+            }
+
+            if (SubjectsList.Count == 1)
+            {
+                CurrentSubject = SubjectsList[0];
+                NameVM = CurrentSubject.Name;
+                TeacherVM = CurrentSubject.Teacher;
             }
         }
 
@@ -124,43 +123,47 @@ namespace AcademyMVVM.ViewModels
             }
             
             CurrentSubject = null;
-            NameVM = "";
-            TeacherVM = "";
-            isEdit = false;
+            NameVM = null;
+            TeacherVM = null;
 
             GetSubjects();
+
+            isEdit = false;
         }
 
         public void EditSubjects()
         {
-            var subject = new Subjects();
-            subject = CurrentSubject;
-
-            NameVM = CurrentSubject.Name;
-            TeacherVM = CurrentSubject.Teacher;
-
             isEdit = true;
+            SaveSubjects();
         }
 
         public void DelSubjects()
         {
-            Subjects subject = new Subjects();
-
-            subject = CurrentSubject;
-
-            subject.Delete();
-
-            if (subject.CurrentValidation.Errors.Count > 0)
+            if (CurrentSubject == null)
             {
-                messageBoxText = subject.CurrentValidation.Errors[0];
+                messageBoxText = "Debe seleccionar una asignatura";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
+            else
+            {
+                Subjects subject = new Subjects();
 
-            CurrentSubject = null;
-            NameVM = "";
-            TeacherVM = "";
+                subject = CurrentSubject;
 
-            GetSubjects();
+                subject.Delete();
+
+                if (subject.CurrentValidation.Errors.Count > 0)
+                {
+                    messageBoxText = subject.CurrentValidation.Errors[0];
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+
+                CurrentSubject = null;
+                NameVM = null;
+                TeacherVM = null;
+
+                GetSubjects();
+            }
         }
     }
 }

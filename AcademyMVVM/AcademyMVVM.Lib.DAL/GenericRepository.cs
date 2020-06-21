@@ -115,18 +115,5 @@ namespace AcademyMVVM.Lib.DAL
 
             return output;
         }
-
-        //public bool DbSetContainsKey(Guid id)
-        //{
-        //    if (DbSet.Any(x => x.Id == id))
-        //        return true;
-        //    else
-        //        return false;
-        //}
-
-        IQueryable<T> IRepository<T>.QueryAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

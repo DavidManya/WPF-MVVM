@@ -15,10 +15,10 @@ C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\bin\Debug\netcoreapp3.1\C
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\bin\Debug\netcoreapp3.1\Common.Lib.runtimeconfig.dev.json
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\bin\Debug\netcoreapp3.1\Common.Lib.dll
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\bin\Debug\netcoreapp3.1\Common.Lib.pdb
-C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.csprojAssemblyReference.cache
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.AssemblyInfoInputs.cache
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.AssemblyInfo.cs
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.csproj.CoreCompileInputs.cache
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.dll
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.pdb
 C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.genruntimeconfig.cache
+C:\Users\dmany\Desktop\WPF-MVVM\AcademyMVVM\Common.Lib\obj\Debug\netcoreapp3.1\Common.Lib.csprojAssemblyReference.cache

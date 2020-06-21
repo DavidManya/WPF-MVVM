@@ -22,14 +22,6 @@ namespace AcademyMVVM.Lib.Models
 
         }
 
-        //public Students(string dni, string firstname, string lastname, string email)
-        //{
-        //    Dni = dni;
-        //    FirstName = firstname;
-        //    LastName = lastname;
-        //    Email = email;
-        //}
-
         public SaveResult<Students> Save()
         {
             return base.Save<Students>();
@@ -208,13 +200,13 @@ namespace AcademyMVVM.Lib.Models
             }
 
             string[] words = email.Split('@');
-            if (!words[1].Contains('.') || !email.Contains('@'))
+            if (words.Length == 1)
             {
                 output.IsSuccess = false;
                 output.Errors.Add("No ha introducido el correo correctamente");
             }
 
-            if (words.Length == 1)
+            if (!words[1].Contains('.') || !email.Contains('@'))
             {
                 output.IsSuccess = false;
                 output.Errors.Add("No ha introducido el correo correctamente");

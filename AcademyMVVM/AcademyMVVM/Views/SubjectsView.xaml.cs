@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using AcademyMVVM.Lib.Models;
 using AcademyMVVM.ViewModels;
 
 namespace AcademyMVVM.Views
@@ -16,6 +17,21 @@ namespace AcademyMVVM.Views
 
             ViewModel = new SubjectsViewModel();
             DataContext = ViewModel;
+        }
+
+        private void SetSubjectObj(Subjects selected)
+        {
+            txtAsignatura.Text = selected.Name;
+            txtNomProf.Text = selected.Teacher;
+        }
+
+        private void dgAsignaturas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgAsignaturas.SelectedIndex != -1)
+            {
+                Subjects SelSubjectsObj = this.dgAsignaturas.SelectedItem as Subjects;
+                SetSubjectObj(SelSubjectsObj);
+            }
         }
     }
 }

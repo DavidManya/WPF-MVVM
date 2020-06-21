@@ -21,14 +21,6 @@ namespace AcademyMVVM.Lib.Models
 
         }
 
-        //public Courses(string namesubject, string dnistudent, DateTime dateenrolment, int chairnumber)
-        //{
-        //    NameSubject = namesubject;
-        //    DniStudent = dnistudent;
-        //    DateEnrolment = dateenrolment;
-        //    ChairNumber = chairnumber;
-        //}
-
         public SaveResult<Courses> Save()
         {
             return base.Save<Courses>();
@@ -55,7 +47,7 @@ namespace AcademyMVVM.Lib.Models
 
         public void ValidateChairNumber(ValidationResult validationResult)
         {
-            var vr = ValidateChairNumber(this.ChairNumber.ToString(), this.NameSubject);
+            var vr = ValidateChairNumber(this.ChairNumber.ToString(), this.NameSubject, this.DniStudent);
 
             if (!vr.IsSuccess)
             {
@@ -64,7 +56,7 @@ namespace AcademyMVVM.Lib.Models
             }
         }
 
-        public static ValidationResult<int> ValidateChairNumber(string chairNumberText, string namesubject)
+        public static ValidationResult<int> ValidateChairNumber(string chairNumberText, string namesubject, string dniStudent)
         {
             var output = new ValidationResult<int>()
             {
@@ -98,7 +90,7 @@ namespace AcademyMVVM.Lib.Models
                 var repo = DepCon.Resolve<IRepository<Courses>>();
                 var entityWithNumber = repo.QueryAll().FirstOrDefault(s => s.NameSubject == namesubject && s.ChairNumber == chairNumber);
 
-                if (entityWithNumber != null)
+                if (entityWithNumber != null && entityWithNumber.DniStudent != dniStudent)
                 {
                     output.IsSuccess = false;
                     output.Errors.Add($"Ya existe un alumno en la silla {chairNumber}");

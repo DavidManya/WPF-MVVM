@@ -20,14 +20,6 @@ namespace AcademyMVVM.Lib.Models
 
         }
 
-        //public Exams(string namesubject, string dnistudent, DateTime dateexam, Double mark)
-        //{
-        //    NameSubject = namesubject;
-        //    DniStudent = dnistudent;
-        //    DateExam = dateexam;
-        //    Mark = mark;
-        //}
-
         public SaveResult<Exams> Save()
         {
             var saveResult = base.Save<Exams>();
