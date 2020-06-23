@@ -14,6 +14,7 @@ namespace AcademyMVVM.ViewModels
     {
         public StudentsViewModel()
         {
+            CleanCommand = new RouteCommand(Clean);
             GetStudentsCommand = new RouteCommand(GetStudents);
             SaveStudentsCommand = new RouteCommand(SaveStudents);
             EditStudentsCommand = new RouteCommand(EditStudents);
@@ -36,6 +37,7 @@ namespace AcademyMVVM.ViewModels
             DateEVM = DateTime.Now;
         }
 
+        public ICommand CleanCommand { get; set; }
         public ICommand GetStudentsCommand { get; set; }
         public ICommand SaveStudentsCommand { get; set; }
         public ICommand DelStudentsCommand { get; set; }
@@ -136,8 +138,8 @@ namespace AcademyMVVM.ViewModels
             }
         }
 
-        private Double _markVM;
-        public Double MarkVM
+        private string _markVM;
+        public string MarkVM
         {
             get { return _markVM; }
             set
@@ -274,6 +276,25 @@ namespace AcademyMVVM.ViewModels
 
         }
 
+        public void Clean()
+        {
+            DniVM = null;
+            FNameVM = null;
+            LNameVM = null;
+            EmailVM = null;
+            StudentsList = null;
+            ChairVM = 0;
+            MarkVM = "0";
+            CoursesList = null;
+            SubjectsList = null;
+            SubjectsNameListE = null;
+            SubjectsNameListC = null;
+            CurrentSubjectC = null;
+            CurrentSubjectE = null;
+            ExamsList = null;
+            DateSVM = DateTime.Now;
+            DateEVM = DateTime.Now;
+        }
         public void GetStudents()
         {
             var repo = Students.DepCon.Resolve<IRepository<Students>>();
@@ -351,18 +372,27 @@ namespace AcademyMVVM.ViewModels
         {
             Students student = new Students();
             student = CurrentStudent;
-            student.Delete();
 
-            if (student.CurrentValidation.Errors.Count > 0)
+            if (student != null)
             {
-                messageBoxText = student.CurrentValidation.Errors[0];
+                student.Delete();
+
+                if (student.CurrentValidation.Errors.Count > 0)
+                {
+                    messageBoxText = student.CurrentValidation.Errors[0];
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+
+                DniVM = null;
+                FNameVM = null;
+                LNameVM = null;
+                EmailVM = null;
+            }
+            else
+            {
+                messageBoxText = "Debe seleccionar alumn@";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
-
-            DniVM = null;
-            FNameVM = null;
-            LNameVM = null;
-            EmailVM = null;
 
             GetStudents();
         }
@@ -397,23 +427,44 @@ namespace AcademyMVVM.ViewModels
         
         public void GetCourses()
         {
+            
+            if (CurrentSubjectC == "")
+            {
+                GetListSubjectsC();
+            }
+
             var repo = Courses.DepCon.Resolve<IRepository<Courses>>();
             CoursesList = repo.QueryAll().ToList();
 
             if (DniVM != null)
             {
-                CoursesList = CoursesList.FindAll(x => x.DniStudent == DniVM);
+                if (CurrentSubjectC == null) { CurrentSubjectC = ""; }
+                if (CurrentSubjectC != "")
+                {
+                    CoursesList = CoursesList.FindAll(x => x.DniStudent == DniVM && x.NameSubject == CurrentSubjectC);
+                }
+                else
+                {
+                    CoursesList = CoursesList.FindAll(x => x.DniStudent == DniVM);
+                }
+
                 if (CoursesList.Count == 1)
                 {
                     CurrentCourse = CoursesList[0];
-                    CurrentSubjectC = CurrentCourse.NameSubject; //no sé si funcionarà
+                    CurrentSubjectC = CurrentCourse.NameSubject;
                     DateSVM = CurrentCourse.DateEnrolment;
                     ChairVM = CurrentCourse.ChairNumber;
+                }
+                else if (CoursesList.Count == 0)
+                {
+                    messageBoxText = "No hay datos para est@ alumn@";
+                    MessageBox.Show(messageBoxText, caption, button, icon);
                 }
             }
             else
             {
-                messageBoxText = "Debe informar DNI del alumno";
+                CoursesList = null;
+                messageBoxText = "Debe informar DNI de alumn@";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
         }
@@ -445,7 +496,7 @@ namespace AcademyMVVM.ViewModels
             GetCourses();
 
             CurrentCourse = null;
-            CurrentSubjectC = null;
+            CurrentSubjectC = "";
             DateSVM = DateTime.Now;
             ChairVM = 0;
             isEdit = false;
@@ -453,53 +504,76 @@ namespace AcademyMVVM.ViewModels
 
         public void EditCourses()
         {
-            var course = new Courses();
-            course = CurrentCourse;
-
-            CurrentSubjectC = CurrentCourse.NameSubject;
-            DateSVM = CurrentCourse.DateEnrolment;
-            ChairVM = CurrentCourse.ChairNumber;
-
             isEdit = true;
+            SaveCourses();
         }
 
         public void DelCourses()
         {
             Courses course = new Courses();
             course = CurrentCourse;
-            course.Delete();
 
-            if (course.CurrentValidation.Errors.Count > 0)
+            if (course != null)
             {
-                messageBoxText = course.CurrentValidation.Errors[0];
+                course.Delete();
+
+                if (course.CurrentValidation.Errors.Count > 0)
+                {
+                    messageBoxText = course.CurrentValidation.Errors[0];
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+
+                DateSVM = DateTime.Now;
+                ChairVM = 0;
+
+                GetCourses();
+            }
+            else
+            {
+                messageBoxText = "Debe seleccionar alumn@/curso";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
-
-            DateSVM = DateTime.Now;
-            ChairVM = 0;
-
-            GetCourses();
         }
 
         public void GetExams()
         {
+            if (CurrentSubjectE == "")
+            {
+                GetListSubjectsE();
+            }
+
             var repo = Exams.DepCon.Resolve<IRepository<Exams>>();
             ExamsList = repo.QueryAll().ToList();
 
             if (DniVM != null)
             {
-                ExamsList = ExamsList.FindAll(x => x.DniStudent == DniVM);
+                if (CurrentSubjectE == null) { CurrentSubjectE = ""; }
+                if (CurrentSubjectE != "")
+                {
+                    ExamsList = ExamsList.FindAll(x => x.DniStudent == DniVM && x.NameSubject == CurrentSubjectE);
+                }
+                else
+                {
+                    ExamsList = ExamsList.FindAll(x => x.DniStudent == DniVM);
+                }
+
                 if (ExamsList.Count == 1)
                 {
                     CurrentExam = ExamsList[0];
-                    CurrentSubjectE = CurrentExam.NameSubject; //no sé si funcionarà
+                    CurrentSubjectE = CurrentExam.NameSubject;
                     DateEVM = CurrentExam.DateExam;
-                    MarkVM = CurrentExam.Mark;
+                    MarkVM = Convert.ToString(CurrentExam.Mark).Replace(",", "."); //Passar a text canviant punt per coma
+                }
+                else if (ExamsList.Count == 0)
+                {
+                    messageBoxText = "No hay datos para est@ alumn@";
+                    MessageBox.Show(messageBoxText, caption, button, icon);
                 }
             }
             else
             {
-                messageBoxText = "Debe informar DNI del alumno";
+                ExamsList = null;
+                messageBoxText = "Debe informar DNI de alumn@";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
         }
@@ -511,7 +585,7 @@ namespace AcademyMVVM.ViewModels
                 DniStudent = DniVM,
                 NameSubject = CurrentSubjectE,
                 DateExam = DateEVM,
-                Mark = MarkVM,
+                Mark = Convert.ToDouble(MarkVM.Replace(".", ",")),  //Passar a Double canviant coma per punt 
             };
 
             if (isEdit == false)
@@ -529,9 +603,9 @@ namespace AcademyMVVM.ViewModels
             }
 
             CurrentExam = null;
-            CurrentSubjectE = null;
+            CurrentSubjectE = "";
             DateEVM = DateTime.Now;
-            MarkVM = 0;
+            MarkVM = "0";
             isEdit = false;
 
             GetExams();
@@ -539,31 +613,35 @@ namespace AcademyMVVM.ViewModels
 
         public void EditExams()
         {
-            var exam = new Exams();
-            exam = CurrentExam;
-
-            CurrentSubjectE = CurrentExam.NameSubject;
-            DateEVM = CurrentExam.DateExam;
-            MarkVM = CurrentExam.Mark;
             isEdit = true;
+            SaveExams();
         }
 
         public void DelExams()
         {
             Exams exam = new Exams();
             exam = CurrentExam;
-            exam.Delete();
 
-            if (exam.CurrentValidation.Errors.Count > 0)
+            if (exam != null)
             {
-                messageBoxText = exam.CurrentValidation.Errors[0];
+                exam.Delete();
+
+                if (exam.CurrentValidation.Errors.Count > 0)
+                {
+                    messageBoxText = exam.CurrentValidation.Errors[0];
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+
+                DateEVM = DateTime.Now;
+                MarkVM = "0";
+
+                GetExams();
+            }
+            else
+            {
+                messageBoxText = "Debe seleccionar alumn@/exámen";
                 MessageBox.Show(messageBoxText, caption, button, icon);
             }
-
-            DateEVM = DateTime.Now;
-            MarkVM = 0;
-
-            GetCourses();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AcademyMVVM"
         xmlns:controls="clr-namespace:AcademyMVVM.Views"
         mc:Ignorable="d"
-        Title="Academy Management" Height="520" Width="800">
+        Title="Academy Management" Height="520" Width="800" ResizeMode="NoResize">
     <Grid>
         <TabControl>
             <TabItem Header="Students" Margin="0,0,0,0">

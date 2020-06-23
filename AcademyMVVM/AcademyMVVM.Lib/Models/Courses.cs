@@ -66,37 +66,34 @@ namespace AcademyMVVM.Lib.Models
             var chairNumber = 0;
             var isConversionOk = false;
 
-            #region check null or empty
             if (string.IsNullOrEmpty(chairNumberText))
             {
                 output.IsSuccess = false;
                 output.Errors.Add("Debe informar el número de silla");
             }
-            #endregion
-
-            #region check format conversion
-            isConversionOk = int.TryParse(chairNumberText, out chairNumber);
-
-            if (!isConversionOk)
+            else
             {
-                output.IsSuccess = false;
-                output.Errors.Add($"No se puede convertir {chairNumber} en número");
-            }
-            #endregion
+                // check format conversion
+                isConversionOk = int.TryParse(chairNumberText, out chairNumber);
 
-            #region check if the char is already in use
-            if (isConversionOk)
-            {
-                var repo = DepCon.Resolve<IRepository<Courses>>();
-                var entityWithNumber = repo.QueryAll().FirstOrDefault(s => s.NameSubject == namesubject && s.ChairNumber == chairNumber);
-
-                if (entityWithNumber != null && entityWithNumber.DniStudent != dniStudent)
+                if (!isConversionOk)
                 {
                     output.IsSuccess = false;
-                    output.Errors.Add($"Ya existe un alumno en la silla {chairNumber}");
+                    output.Errors.Add($"No se puede convertir {chairNumber} en número");
+                }
+                else
+                {
+                    // check if the char is already in use
+                    var repo = DepCon.Resolve<IRepository<Courses>>();
+                    var entityWithNumber = repo.QueryAll().FirstOrDefault(s => s.NameSubject == namesubject && s.ChairNumber == chairNumber);
+
+                    if (entityWithNumber != null && entityWithNumber.DniStudent != dniStudent)
+                    {
+                        output.IsSuccess = false;
+                        output.Errors.Add($"Ya existe un alumno en la silla {chairNumber}");
+                    }
                 }
             }
-            #endregion
 
             if (output.IsSuccess)
                 output.ValidatedResult = chairNumber;

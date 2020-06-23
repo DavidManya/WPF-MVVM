@@ -37,7 +37,10 @@ namespace AcademyMVVM.Lib.Models
         {
             var output = base.Validate();
             ValidateDate(output);
-            ValidateMark(output);
+            if (output.IsSuccess)
+            {
+                ValidateMark(output);
+            }
 
             return output;
         }
@@ -74,25 +77,22 @@ namespace AcademyMVVM.Lib.Models
             var markNumber = 0.0;
             var isConversionOk = false;
 
-            #region check null or empty
             if (string.IsNullOrEmpty(markText))
             {
                 output.IsSuccess = false;
                 output.Errors.Add("Debe informar una nota");
             }
-            #endregion
-
-            #region check format conversion
-
-            isConversionOk = Double.TryParse(markText, out markNumber);
-
-            if (!isConversionOk)
+            else
             {
-                output.IsSuccess = false;
-                output.Errors.Add($"No se puede convertir {markNumber} en número");
-            }
+                // check format conversion
+                isConversionOk = Double.TryParse(markText, out markNumber);
 
-            #endregion
+                if (!isConversionOk)
+                {
+                    output.IsSuccess = false;
+                    output.Errors.Add($"No se puede convertir {markNumber} en número");
+                }
+            }
 
             if (output.IsSuccess)
                 output.ValidatedResult = markNumber;
@@ -110,23 +110,22 @@ namespace AcademyMVVM.Lib.Models
             var datetime = new DateTime();
             var isConversionOk = false;
 
-            #region check null or empty
             if (string.IsNullOrEmpty(dateText))
             {
                 output.IsSuccess = false;
                 output.Errors.Add("Debe informar una fecha");
             }
-            #endregion
-
-            #region check format conversion
-            isConversionOk = DateTime.TryParse(dateText, out datetime);
-
-            if (!isConversionOk)
+            else
             {
-                output.IsSuccess = false;
-                output.Errors.Add($"No se puede convertir {datetime} en fecha");
+                // check format conversion
+                isConversionOk = DateTime.TryParse(dateText, out datetime);
+
+                if (!isConversionOk)
+                {
+                    output.IsSuccess = false;
+                    output.Errors.Add($"No se puede convertir {datetime} en fecha");
+                }
             }
-            #endregion
 
             if (output.IsSuccess)
                 output.ValidatedResult = datetime;

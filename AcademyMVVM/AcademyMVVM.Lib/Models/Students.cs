@@ -39,9 +39,18 @@ namespace AcademyMVVM.Lib.Models
             var output = base.Validate();
 
             ValidateDni(output);
-            ValidateFName(output);
-            ValidateLName(output);
-            ValidateEmail(output);
+            if (output.IsSuccess)
+            {
+                ValidateFName(output);
+                if (output.IsSuccess)
+                {
+                    ValidateLName(output);
+                    if (output.IsSuccess)
+                    {
+                        ValidateEmail(output);
+                    }
+                }
+            }
 
             return output;
         }
@@ -74,10 +83,9 @@ namespace AcademyMVVM.Lib.Models
             if (string.IsNullOrEmpty(dni))
             {
                 output.IsSuccess = false;
-                output.Errors.Add("Debe informar el DNI el alumno");
+                output.Errors.Add("Debe informar DNI de alumn@");
             }
-
-            if (dni.Length < 9)
+            else if (dni.Length < 9)
             {
                 output.IsSuccess = false;
                 output.Errors.Add("El DNI del alumno no tiene un formato correcto");
@@ -91,7 +99,7 @@ namespace AcademyMVVM.Lib.Models
             {
                 // on create
                 output.IsSuccess = false;
-                output.Errors.Add("Ya existe un alumno con este DNI");
+                output.Errors.Add("Ya existe alumn@ con este DNI");
             }
             else if (currentId != default && entityWithDni != null && entityWithDni.Id != currentId)
             {
@@ -99,7 +107,7 @@ namespace AcademyMVVM.Lib.Models
                 {
                     // on update
                     output.IsSuccess = false;
-                    output.Errors.Add("Ya existe un alumno con este DNI");
+                    output.Errors.Add("Ya existe alumn@ con este DNI");
                 }
             }
             #endregion
@@ -120,13 +128,12 @@ namespace AcademyMVVM.Lib.Models
             if (string.IsNullOrEmpty(dni))
             {
                 output.IsSuccess = false;
-                output.Errors.Add("El DNI del alumno no puede estar vacío");
+                output.Errors.Add("El DNI no puede estar vacío");
             }
-
-            if (dni.Length < 9)
+            else if (dni.Length < 9)
             {
                 output.IsSuccess = false;
-                output.Errors.Add("El DNI del alumno no tiene un formato correcto");
+                output.Errors.Add("El DNI no tiene un formato correcto");
             }
 
             #region check existence
@@ -136,7 +143,7 @@ namespace AcademyMVVM.Lib.Models
             if (entityWithDni == null)
             {
                 output.IsSuccess = false;
-                output.Errors.Add($"No existe un alumno con ese DNI {dni}");
+                output.Errors.Add($"No existe alumn@ con ese DNI {dni}");
             }
             #endregion
 
@@ -158,7 +165,7 @@ namespace AcademyMVVM.Lib.Models
             if (string.IsNullOrEmpty(fname))
             {
                 output.IsSuccess = false;
-                output.Errors.Add("Debe informar el nombre del alumno");
+                output.Errors.Add("Debe informar el nombre");
             }
 
             if (output.IsSuccess)
@@ -177,7 +184,7 @@ namespace AcademyMVVM.Lib.Models
             if (string.IsNullOrEmpty(lname))
             {
                 output.IsSuccess = false;
-                output.Errors.Add("Debe informar los apellidos del alumno");
+                output.Errors.Add("Debe informar los apellidos");
             }
 
             if (output.IsSuccess)
@@ -198,18 +205,20 @@ namespace AcademyMVVM.Lib.Models
                 output.IsSuccess = false;
                 output.Errors.Add("No ha introducido el correo electrónico");
             }
+            else
+            { 
+                string[] words = email.Split('@');
+                if (words.Length == 1)
+                {
+                    output.IsSuccess = false;
+                    output.Errors.Add("No ha introducido el correo correctamente");
+                }
 
-            string[] words = email.Split('@');
-            if (words.Length == 1)
-            {
-                output.IsSuccess = false;
-                output.Errors.Add("No ha introducido el correo correctamente");
-            }
-
-            if (!words[1].Contains('.') || !email.Contains('@'))
-            {
-                output.IsSuccess = false;
-                output.Errors.Add("No ha introducido el correo correctamente");
+                if (!words[1].Contains('.') || !email.Contains('@'))
+                {
+                    output.IsSuccess = false;
+                    output.Errors.Add("No ha introducido el correo correctamente");
+                }
             }
 
             if (output.IsSuccess)

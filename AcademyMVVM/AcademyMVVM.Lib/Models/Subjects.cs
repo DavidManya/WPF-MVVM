@@ -39,7 +39,10 @@ namespace AcademyMVVM.Lib.Models
             };
 
             ValidateName(validationResult);
-            ValidateTeacher(validationResult);
+            if (validationResult.IsSuccess)
+            {
+                ValidateTeacher(validationResult);
+            }
 
             return validationResult;
         }
@@ -79,30 +82,31 @@ namespace AcademyMVVM.Lib.Models
                 output.IsSuccess = false;
                 output.Errors.Add("No ha introducido el nombre de la asignatura");
             }
-
-            #region check duplication
-            var repo = DepCon.Resolve<IRepository<Subjects>>();
-            var entityWithName = repo.QueryAll().FirstOrDefault(s => s.Name == name);
-
-            if(entityWithName != null)
+            else
             {
-                if (currentId == default)
+                var repo = DepCon.Resolve<IRepository<Subjects>>();
+                var entityWithName = repo.QueryAll().FirstOrDefault(s => s.Name == name);
+
+                if (entityWithName != null)
                 {
-                    // on create
-                    output.IsSuccess = false;
-                    output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
-                }
-                else if (currentId != default && entityWithName.Id != currentId)
-                {
-                    // on update
-                    if (entityWithName.Name == name)
+                    if (currentId == default)
                     {
+                        // on create
                         output.IsSuccess = false;
                         output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
                     }
+                    else if (currentId != default && entityWithName.Id != currentId)
+                    {
+                        // on update
+                        if (entityWithName.Name == name)
+                        {
+                            output.IsSuccess = false;
+                            output.Errors.Add($"Ya existe una asignatura con ese nombre {name}");
+                        }
+                    }
                 }
+
             }
-            #endregion
 
             if (output.IsSuccess)
             {
@@ -124,17 +128,17 @@ namespace AcademyMVVM.Lib.Models
                 output.IsSuccess = false;
                 output.Errors.Add("No ha introducido el nombre de la asignatura");
             }
-
-            #region check duplication
-            var repo = DepCon.Resolve<IRepository<Subjects>>();
-            var entityWithName = repo.QueryAll().FirstOrDefault(s => s.Name == name);
-
-            if (entityWithName.Name == null)
+            else
             {
-                output.IsSuccess = false;
-                output.Errors.Add($"No existe una asignatura con este nombre {name}");
+                var repo = DepCon.Resolve<IRepository<Subjects>>();
+                var entityWithName = repo.QueryAll().FirstOrDefault(s => s.Name == name);
+
+                if (entityWithName.Name == null)
+                {
+                    output.IsSuccess = false;
+                    output.Errors.Add($"No existe una asignatura con este nombre {name}");
+                }
             }
-            #endregion
 
             if (output.IsSuccess)
             {
