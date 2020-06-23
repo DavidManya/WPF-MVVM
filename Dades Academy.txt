@@ -1,0 +1,79 @@
+Asignaturas:
+Álgebra-Greg Pitágoras
+Itinerari .NET-Jake Petrulla
+FrontEnd/BackEnd Developer-John Keating
+Introducción al Macramé-Albus Dumbledore
+Metodologías Agile-Sherman Klump
+Programación Estructurada-Walter White
+Mateméticas-Luís Cuadrado
+
+Alumnos:
+Elena Nito del Bosque/12345678A/ele.nito@gmail.com
+Paqui Dermo de Africa/23456789A/paqui.dermo@gmail.com
+Armando Paredes Altas/34567890C/armando66@gmail.com
+Luís Térico Perdido/45678901D/luteper@gmail.com
+Aitor Tilla Sincebolla/56789012E/aitisin@gmail.com
+
+Cursos:
+Elena/Álgebra/1
+Paqui/Álgebra/2
+Armando/Álebra/3
+
+Elena/Itinerari/1
+Luís/Itinerari/2
+Aitor/Itinerari/3
+
+Paqui/Front/1
+Armando/Front/2
+Luís/Front/3
+Aitor/Front/4
+
+Elena/Agile/1
+Paqui/Agile /2
+Armando/Agile/3
+Luís/Agile/4
+
+Aitor/Macramé/1
+
+Elena/Program/1
+Paqui/Program/2
+Armando/Program/3
+Luís/Program/4
+Aitor/Program/5
+
+Paqui/Mates/1
+Armando/Mates/2
+Aitor/Mates/3
+
+Exámenes:
+Elena/Álgebra/1/28/02/2020/8,0/22/06/2020/9,0
+Paqui/Álgebra/2/28/02/2020/5,5/22/06/2020/7,0
+Armando/Álebra/3/28/02/2020/6,0/22/06/2020/6,5
+
+Elena/Itinerari/1/28/02/2020/9,5/22/06/2020/9,5
+Luís/Itinerari/2/28/02/2020/8,5/22/06/2020/8,0
+Aitor/Itinerari/3/28/02/2020/6,0/22/06/2020/6,5
+
+Paqui/Front/1/28/02/2020/7,0/22/06/2020/7,0
+Armando/Front/2/28/02/2020/7,0/22/06/2020/7,5
+Luís/Front/3/28/02/2020/8,5/22/06/2020/8,0
+Aitor/Front/4/28/02/2020/6,5/22/06/2020/7,0
+
+Elena/Agile/1/28/02/2020/9,0/22/06/2020/8,5
+Paqui/Agile/2/28/02/2020/8,0/22/06/2020/9,0
+Armando/Agile/3/28/02/2020/8,0/22/06/2020/8,0
+Luís/Agile/4/28/02/2020/7,5/22/06/2020/8,0
+
+Aitor/Macramé/1/28/02/2020/8,0/22/06/2020/8,5
+
+Elena/Program/1/28/02/2020/8,5/22/06/2020/9,0
+Paqui/Program/2/28/02/2020/7,0/22/06/2020/8,5
+Armando/Program/3/28/02/2020/8,5/22/06/2020/8,0
+Luís/Program/4/28/02/2020/8,0/22/06/2020/9,0
+Aitor/Program/5/28/02/2020/6,5/22/06/2020/7,0
+
+Paqui/Mates/1/28/02/2020/8,0/22/06/2020/8,5
+Armando/Mates/2/28/02/2020/9,5/22/06/2020/9,5
+Aitor/Mates/3/28/02/2020/8,0/22/06/2020/7,5
+
+
